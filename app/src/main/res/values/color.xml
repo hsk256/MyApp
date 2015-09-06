@@ -37,7 +37,8 @@
     <color name="comment_yellow">#FFFFEE</color>
 
     <color name="link_color">#1d6a2a</color>
-
+    <color name="main_blue_light">#3F56B5</color>
+    <color name="main_blue_dark">#30459E</color>
 
 
 

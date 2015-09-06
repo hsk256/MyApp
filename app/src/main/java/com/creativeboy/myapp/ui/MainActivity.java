@@ -1,22 +1,30 @@
-package com.creativeboy.myapp;
+package com.creativeboy.myapp.ui;
 
+import android.content.DialogInterface;
 import android.net.Uri;
+import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import com.facebook.drawee.view.DraweeView;
+import com.creativeboy.myapp.R;
+import com.creativeboy.myapp.utils.SnackbarUril;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,View.OnClickListener {
     @Bind(R.id.navigation)
     NavigationView mNavigationView;
     @Bind(R.id.draw_layout)
@@ -25,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
     Toolbar mToolbar;
     @Bind(R.id.iv_header)
     SimpleDraweeView iv_header;
+    @Bind(R.id.main_content)
+    CoordinatorLayout coordinatorLayout;
+    @Bind(R.id.appbarlayout)
+    AppBarLayout appBarLayout;
+    @Bind(R.id.tablayout)
+    TabLayout tabLayout;
+    @Bind(R.id.viewpager)
+    ViewPager viewPager;
+    @Bind(R.id.floatingbutton)
+    FloatingActionButton floatingActionButton;
+    private static String[] mTitles = {"Tab1","Tab2","Tab3"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         onNavigationViewItemSelected(mNavigationView);
         //设置头像
-        iv_header.setImageURI(Uri.parse("http://www.touxiang.cn/uploads/20131114/14-065802_226.jpg"));
+        iv_header.setImageURI(Uri.parse("http://www.touxiang.cn/uploads/20120723/23-033215_282.jpg"));
+        floatingActionButton.setOnClickListener(this);
+
     }
 
     private void onNavigationViewItemSelected(NavigationView nav) {
@@ -68,16 +89,36 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onPageScrolled(int i, float v, int i1) {
+
+    }
+
+    @Override
+    public void onPageSelected(int i) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int i) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch ((v.getId())) {
+            case R.id.floatingbutton:
+                SnackbarUril.showShort(v,"floatting action button");
+        }
     }
 }

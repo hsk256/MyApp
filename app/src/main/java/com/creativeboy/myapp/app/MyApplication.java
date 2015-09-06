@@ -1,4 +1,4 @@
-package com.creativeboy.myapp;
+package com.creativeboy.myapp.app;
 
 import android.app.Application;
 
