@@ -1,6 +1,5 @@
 package com.creativeboy.myapp.ui;
 
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -20,6 +19,9 @@ import android.view.View;
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.utils.SnackbarUril;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         //设置头像
         iv_header.setImageURI(Uri.parse("http://www.touxiang.cn/uploads/20120723/23-033215_282.jpg"));
         floatingActionButton.setOnClickListener(this);
+
 
     }
 
