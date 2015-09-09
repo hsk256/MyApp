@@ -7,6 +7,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,11 +18,16 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.creativeboy.myapp.R;
+import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
+import com.creativeboy.myapp.ui.fragment.FragmentCar;
+import com.creativeboy.myapp.ui.fragment.FragmentJoke;
+import com.creativeboy.myapp.ui.fragment.FragmentNews;
 import com.creativeboy.myapp.utils.SnackbarUril;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -45,7 +51,12 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     ViewPager viewPager;
     @Bind(R.id.floatingbutton)
     FloatingActionButton floatingActionButton;
-    private static String[] mTitles = {"Tab1","Tab2","Tab3"};
+    private List<Fragment> fragmentList;
+    private FragmentCar fragmentCar;
+    private FragmentNews fragmentNews;
+    private FragmentJoke fragmentJoke;
+    private static String[] mTitles = {"新闻","娱乐","汽车"};
+    private MyViewPagerAdapter myViewPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     private void init() {
         setSupportActionBar(mToolbar);
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar,R.string.open,R.string.close);
         actionBarDrawerToggle.syncState();
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
@@ -64,7 +76,23 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         iv_header.setImageURI(Uri.parse("http://www.touxiang.cn/uploads/20120723/23-033215_282.jpg"));
         floatingActionButton.setOnClickListener(this);
 
+        fragmentCar = new FragmentCar();
+        fragmentJoke = new FragmentJoke();
+        fragmentNews = new FragmentNews();
+        fragmentList = new ArrayList<>();
+        fragmentList.add(fragmentJoke);
+        fragmentList.add(fragmentCar);
+        fragmentList.add(fragmentNews);
 
+        myViewPagerAdapter = new MyViewPagerAdapter(getSupportFragmentManager(),mTitles,fragmentList);
+        viewPager.setAdapter(myViewPagerAdapter);
+        //设置viewpager 最大的缓存页面数
+        viewPager.setOffscreenPageLimit(4);
+        viewPager.addOnPageChangeListener(this);
+        //将viewpager 与 Tablayout关联起来
+        tabLayout.setupWithViewPager(viewPager);
+        // 设置Tablayout的Tab显示ViewPager的适配器中的getPageTitle函数获取到的标题
+        tabLayout.setTabsFromPagerAdapter(myViewPagerAdapter);
     }
 
     private void onNavigationViewItemSelected(NavigationView nav) {
