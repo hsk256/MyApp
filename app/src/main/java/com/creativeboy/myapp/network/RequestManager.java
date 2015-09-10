@@ -6,6 +6,7 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.creativeboy.myapp.model.BaseResponseDto;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -25,7 +26,7 @@ public class RequestManager {
      * @param requestTask 回调
      * @return
      */
-    public static <T extends BaseResponseDto> GsonRequest<T> post(
+    public static <T extends BaseResponseDto> GsonRequest<T> Gsonpost(
             final String url,
             final HashMap<String,String> params,
             final Class<T> clazz,
@@ -55,7 +56,7 @@ public class RequestManager {
      * @param requestTask
      * @return
      */
-    public static <T extends BaseResponseDto> GsonRequest<T> get(
+    public static <T extends BaseResponseDto> GsonRequest<T> Gsonget(
             final String url,
             final HashMap<String,String> params,
             final Class<T> clazz,
@@ -122,4 +123,6 @@ public class RequestManager {
 
         return url+stringBuilder.toString();
     }
+
+
 }
