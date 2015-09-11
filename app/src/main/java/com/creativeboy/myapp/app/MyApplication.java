@@ -2,6 +2,7 @@ package com.creativeboy.myapp.app;
 
 import android.app.Application;
 
+import com.creativeboy.myapp.network.VolleyManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
@@ -16,5 +17,6 @@ public class MyApplication extends Application{
 
     private void init() {
         Fresco.initialize(getApplicationContext());
+        VolleyManager.init(getApplicationContext());
     }
 }

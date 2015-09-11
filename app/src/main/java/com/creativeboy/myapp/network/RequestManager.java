@@ -2,9 +2,11 @@ package com.creativeboy.myapp.network;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.creativeboy.myapp.model.BaseResponseDto;
 
 import java.io.UnsupportedEncodingException;
@@ -44,6 +46,7 @@ public class RequestManager {
                 return params;
             }
         };
+        VolleyManager.addRequestQueue(gsonRequest);
         return gsonRequest;
 
     }
@@ -68,7 +71,28 @@ public class RequestManager {
             public void onResponse(T response) {
                 requestTask.onSuccess(response);
             }}, errorListener(requestTask));
+        VolleyManager.addRequestQueue(gsonRequest);
         return gsonRequest;
+    }
+
+
+    public static void StringPost(
+            final String url,
+            final HashMap<String,String> params,
+            final RequestTask requestTask
+    ) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                requestTask.onSuccess(response);
+            }
+        },errorListener(requestTask)) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                return params;
+            }
+        };
+        VolleyManager.addRequestQueue(stringRequest);
     }
 
     /**

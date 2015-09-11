@@ -19,6 +19,7 @@ import android.view.View;
 
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
+import com.creativeboy.myapp.presenter.JokePresesnter;
 import com.creativeboy.myapp.ui.fragment.FragmentCar;
 import com.creativeboy.myapp.ui.fragment.FragmentJoke;
 import com.creativeboy.myapp.ui.fragment.FragmentNews;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private FragmentJoke fragmentJoke;
     private static String[] mTitles = {"新闻","娱乐","汽车"};
     private MyViewPagerAdapter myViewPagerAdapter;
+    private JokePresesnter jokePresesnter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,39 +100,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         tabLayout.setupWithViewPager(viewPager);
         // 设置Tablayout的Tab显示ViewPager的适配器中的getPageTitle函数获取到的标题
         tabLayout.setTabsFromPagerAdapter(myViewPagerAdapter);
-        String json = "{\n" +
-                "  \"showapi_res_code\": 0,\n" +
-                "  \"showapi_res_error\": \"\",\n" +
-                "  \"showapi_res_body\": {\n" +
-                "    \"0\": {\n" +
-                "      \"description\": \"单亲妈妈杨思琦暗交富商男友 见镜头快闪躲后座...\",\n" +
-                "      \"picUrl\": \"http://img1.gtimg.com/13/1360/136078/13607888_small.jpg\",\n" +
-                "      \"time\": \"2015-09-04 09:12\",\n" +
-                "      \"title\": \"单亲妈妈杨思琦暗交富商男友 见镜头快闪躲后座\",\n" +
-                "      \"url\": \"http://ent.qq.com/a/20150904/007240.htm\"\n" +
-                "    },\n" +
-                "    \"1\": {\n" +
-                "      \"description\": \"夏克立夫妇翻白眼庆结婚9周年 夏天甜笑看镜头...\",\n" +
-                "      \"picUrl\": \"http://img1.gtimg.com/ent/pics/hv1/209/146/1916/124625339_small.jpg\",\n" +
-                "      \"time\": \"2015-09-04 08:52\",\n" +
-                "      \"title\": \"夏克立夫妇翻白眼庆结婚9周年 夏天甜笑看镜头\",\n" +
-                "      \"url\": \"http://ent.qq.com/a/20150904/006605.htm\"\n" +
-                "    },\n" +
-                "    \"code\": 200,\n" +
-                "    \"msg\": \"ok\"\n" +
-                "  }\n" +
-                "}";
-
-        try {
-            JSONObject jsonObject = new JSONObject(json);
-            Log.d(TAG,"show_api_error:"+jsonObject.getString("showapi_res_error"));
-            Log.d(TAG,"show_api_code:"+jsonObject.getString("showapi_res_code"));
-            JSONObject object = jsonObject.getJSONObject("showapi_res_body");
-            JSONObject obj2 = object.getJSONObject("0");
-            Log.d(TAG,"description:"+obj2.getString("description"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
     }
 

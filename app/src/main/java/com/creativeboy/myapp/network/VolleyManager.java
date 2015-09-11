@@ -37,6 +37,10 @@ public class VolleyManager {
     /**
      * 将请求 添加到请求队列中
      */
+
+    public static void addRequestQueue(Request<?> request) {
+        addRequestQueue(request,null);
+    }
     public static void addRequestQueue(Request<?> request,Object tag) {
         if(tag!=null) {
             request.setTag(tag);
