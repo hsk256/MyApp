@@ -33,6 +33,7 @@ public class FragmentJoke extends Fragment implements JokeView{
     private List<Joke> dataList;
     private RecyclerView.Adapter adapter;
     private JokePresesnter jokePresesnter;
+    private LinearLayoutManager linearLayoutManager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,23 +51,30 @@ public class FragmentJoke extends Fragment implements JokeView{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+         linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         joke_recyclerview.setLayoutManager(linearLayoutManager);
         jokePresesnter = new JokePresesnter(this);
+        Log.d(TAG,"getJokeInfo--");
         jokePresesnter.getJokeInfo("6", "1");
         dataList = new ArrayList<>();
-
         adapter = new MyJokeRecyclerviewAdapter(dataList);
         joke_recyclerview.setAdapter(adapter);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     @Override
     public void setData(List<Joke> data) {
         if(data!=null) {
-            Log.d(TAG,"data--"+data);
-            dataList.addAll(data);
+            Log.d(TAG, "data--" + data.get(0).getDescription()+data.get(0).getTitle());
+            dataList = data;
+            Log.d(TAG, "data--" + dataList.get(0).getDescription()+dataList.get(0).getTitle());
+           // dataList.addAll(data);
+            joke_recyclerview.setLayoutManager(linearLayoutManager);
             adapter.notifyDataSetChanged();
         }
 

@@ -9,14 +9,28 @@ public class Joke {
     private String description;
     private String picUrl;
     private String url;
+    private String time;
 
     public Joke() {}
-    public Joke(String title,String description,String picUrl,String url) {
+
+    public Joke(String title,String description,String picUrl,String url,String time) {
         this.title = title;
         this.description = description;
         this.picUrl = picUrl;
         this.url = url;
+        this.time = time;
     }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+
+
     public String getTitle() {
         return title;
     }

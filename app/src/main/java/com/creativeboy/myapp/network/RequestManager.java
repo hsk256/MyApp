@@ -8,6 +8,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.creativeboy.myapp.model.BaseResponseDto;
+import com.creativeboy.myapp.utils.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -19,6 +20,8 @@ import java.util.Map;
  * Created by heshaokang on 2015/9/8.
  */
 public class RequestManager {
+
+    private static final String TAG = "RequestManager";
 
     /**
      * Post 请求
@@ -105,6 +108,7 @@ public class RequestManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d(TAG,"error--"+error.getMessage());
                 if(error instanceof NoConnectionError) { //无网络连接
                     requestTask.onDisconnected();
                 }else if(error instanceof TimeoutError) { //连接超时

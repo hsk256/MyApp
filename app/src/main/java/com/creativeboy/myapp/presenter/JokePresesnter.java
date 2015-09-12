@@ -2,6 +2,7 @@ package com.creativeboy.myapp.presenter;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.creativeboy.myapp.app.Constants;
@@ -9,6 +10,7 @@ import com.creativeboy.myapp.model.JokeModel;
 import com.creativeboy.myapp.model.bean.Joke;
 import com.creativeboy.myapp.network.RequestTask;
 import com.creativeboy.myapp.utils.Log;
+import com.creativeboy.myapp.utils.SnackbarUril;
 import com.creativeboy.myapp.view.JokeView;
 
 import org.json.JSONException;
@@ -55,18 +57,25 @@ public class JokePresesnter {
                 try {
                     jsonObject = new JSONObject(response);
                     Log.d(TAG, "show_api_error:" + jsonObject.getString("showapi_res_error"));
-                    Log.d(TAG,"show_api_code:"+jsonObject.getString("showapi_res_code"));
-                    JSONObject resBody = jsonObject.getJSONObject("showapi_res_body");
-                    for(int i=0;i<resBody.length()-2;i++) {
-                        JSONObject data = resBody.getJSONObject(i+"");
-                         joke= new Joke();
-                        joke.setDescription(data.getString("description"));
-                        joke.setDescription(data.getString("title"));
-                        joke.setDescription(data.getString("picUrl"));
-                        joke.setDescription(data.getString("url"));
-                        jokeList.add(joke);
+                    Log.d(TAG, "show_api_code:" + jsonObject.getString("showapi_res_code"));
+                    if (jsonObject.getString("showapi_res_code").equals("-1")) {
+
+                    }else {
+                        JSONObject resBody = jsonObject.getJSONObject("showapi_res_body");
+                        for(int i=0;i<resBody.length()-2;i++) {
+                            JSONObject data = resBody.getJSONObject(i+"");
+                            joke= new Joke();
+                            Log.d(TAG, "desc--"+data);
+                            joke.setDescription(data.getString("description"));
+                            joke.setTitle(data.getString("title"));
+                            joke.setTime(data.getString("time"));
+                            joke.setPicUrl(data.getString("picUrl"));
+                            joke.setUrl(data.getString("url"));
+                            jokeList.add(joke);
+                        }
+                        jokeView.setData(jokeList);
                     }
-                    jokeView.setData(jokeList);
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -76,7 +85,7 @@ public class JokePresesnter {
 
             @Override
             public void onError(VolleyError error) {
-
+                Log.d(TAG,"errorInfo--"+error.getMessage());
             }
 
             @Override

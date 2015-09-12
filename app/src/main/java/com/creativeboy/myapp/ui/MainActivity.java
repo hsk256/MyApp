@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private FragmentCar fragmentCar;
     private FragmentNews fragmentNews;
     private FragmentJoke fragmentJoke;
-    private static String[] mTitles = {"新闻","娱乐","汽车"};
+    private static String[] mTitles = {"汽车","娱乐","新闻"};
     private MyViewPagerAdapter myViewPagerAdapter;
     private JokePresesnter jokePresesnter;
     @Override
