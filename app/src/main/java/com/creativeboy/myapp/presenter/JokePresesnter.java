@@ -1,8 +1,6 @@
 package com.creativeboy.myapp.presenter;
 
-import android.app.Activity;
 import android.support.v4.app.Fragment;
-import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.creativeboy.myapp.app.Constants;
@@ -10,7 +8,6 @@ import com.creativeboy.myapp.model.JokeModel;
 import com.creativeboy.myapp.model.bean.Joke;
 import com.creativeboy.myapp.network.RequestTask;
 import com.creativeboy.myapp.utils.Log;
-import com.creativeboy.myapp.utils.SnackbarUril;
 import com.creativeboy.myapp.view.JokeView;
 
 import org.json.JSONException;
@@ -59,7 +56,7 @@ public class JokePresesnter {
                     Log.d(TAG, "show_api_error:" + jsonObject.getString("showapi_res_error"));
                     Log.d(TAG, "show_api_code:" + jsonObject.getString("showapi_res_code"));
                     if (jsonObject.getString("showapi_res_code").equals("-1")) {
-
+                        jokeView.loadError();
                     }else {
                         JSONObject resBody = jsonObject.getJSONObject("showapi_res_body");
                         for(int i=0;i<resBody.length()-2;i++) {
@@ -86,15 +83,17 @@ public class JokePresesnter {
             @Override
             public void onError(VolleyError error) {
                 Log.d(TAG,"errorInfo--"+error.getMessage());
+                jokeView.loadError();
             }
 
             @Override
             public void onTimeOut() {
-
+                jokeView.loadError();
             }
 
             @Override
             public void onDisconnected() {
+                jokeView.loadError();
 
             }
         });

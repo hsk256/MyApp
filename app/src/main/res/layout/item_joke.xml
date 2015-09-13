@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:text="title"
             android:layout_marginTop="8dp"
-            android:layout_toRightOf="@+id/iv_header" />
+            android:maxLength="7"
+            android:layout_toRightOf="@+id/sd_pic" />
         <TextView
             android:id="@+id/tv_content"
             android:layout_width="wrap_content"
@@ -34,7 +35,7 @@
             android:text="哈啥地方 说的发送到发送到大是大非撒旦法撒旦法手动阀"
             android:maxLength="15"
             android:layout_below="@+id/tv_title"
-            android:layout_toRightOf="@+id/iv_header"
+            android:layout_toRightOf="@+id/sd_pic"
             android:layout_marginTop="8dp"/>
         <TextView
             android:id="@+id/tv_time"

@@ -1,5 +1,6 @@
 package com.creativeboy.myapp.adapter;
 
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,8 +56,8 @@ public class MyJokeRecyclerviewAdapter extends RecyclerView.Adapter<MyJokeRecycl
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
-        holder.tv_content.setText(datas.get(position).getDescription());
+        holder.sd_pic.setImageURI(Uri.parse(datas.get(position).getPicUrl()));
+        holder.tv_content.setText(datas.get(position).getDescription()+"...");
         holder.tv_title.setText(datas.get(position).getTitle());
         holder.tv_time.setText(datas.get(position).getTime());
     }

@@ -23,13 +23,9 @@ import com.creativeboy.myapp.presenter.JokePresesnter;
 import com.creativeboy.myapp.ui.fragment.FragmentCar;
 import com.creativeboy.myapp.ui.fragment.FragmentJoke;
 import com.creativeboy.myapp.ui.fragment.FragmentNews;
-import com.creativeboy.myapp.utils.Log;
-import com.creativeboy.myapp.utils.SnackbarUril;
+import com.creativeboy.myapp.utils.SnackbarUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private FragmentCar fragmentCar;
     private FragmentNews fragmentNews;
     private FragmentJoke fragmentJoke;
-    private static String[] mTitles = {"汽车","娱乐","新闻"};
+    private static String[] mTitles = {"娱乐","图片","新闻"};
     private MyViewPagerAdapter myViewPagerAdapter;
     private JokePresesnter jokePresesnter;
     @Override
@@ -157,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     public void onClick(View v) {
         switch ((v.getId())) {
             case R.id.floatingbutton:
-                SnackbarUril.showShort(v,"floatting action button");
+                SnackbarUtil.showShort(v, "floatting action button");
         }
     }
 }

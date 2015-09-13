@@ -14,7 +14,6 @@ public class JokeModel {
     private static final String TAG = "JokeModel";
 
     public void getJokeInfo(String url,HashMap<String,String> req, final RequestTask requestTask) {
-        Log.d(TAG,req.get("showapi_appid"));
         RequestManager.StringPost(url, req, new RequestTask<String>() {
             @Override
             public void onPreExcute() {

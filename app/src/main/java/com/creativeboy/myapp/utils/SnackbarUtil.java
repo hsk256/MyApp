@@ -9,7 +9,7 @@ import com.creativeboy.myapp.R;
  * Created by heshaokang on 2015/9/6.
  * md 的提示信息组件 出现在屏幕下方 类似于Toast
  */
-public class SnackbarUril {
+public class SnackbarUtil {
     private static Snackbar snackbar;
     public static void showShort(View view,String msg) {
         snackbar = Snackbar.make(view,msg,Snackbar.LENGTH_SHORT);

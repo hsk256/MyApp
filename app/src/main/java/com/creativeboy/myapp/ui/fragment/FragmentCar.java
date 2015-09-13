@@ -2,17 +2,23 @@ package com.creativeboy.myapp.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
 
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.adapter.MyCarRecyclerviewAdapter;
+import com.creativeboy.myapp.adapter.OnRecyclerviewItemClickListener;
 import com.creativeboy.myapp.app.Constants;
+import com.creativeboy.myapp.utils.SnackbarUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,7 +32,6 @@ public class FragmentCar extends Fragment{
     RecyclerView car_recyclerview;
     private MyCarRecyclerviewAdapter myCarRecyclerviewAdapter;
     private String[] imgs= Constants.IMAGES_URL;
-    private LinearLayoutManager linearLayoutManager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +48,15 @@ public class FragmentCar extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayout.VERTICAL);
-        car_recyclerview.setLayoutManager(linearLayoutManager);
+//        car_recyclerview.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        car_recyclerview.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
         myCarRecyclerviewAdapter = new MyCarRecyclerviewAdapter(imgs);
         car_recyclerview.setAdapter(myCarRecyclerviewAdapter);
+        myCarRecyclerviewAdapter.setOnItemClickListener(new OnRecyclerviewItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                SnackbarUtil.showLong(view,"click "+position);
+            }
+        });
     }
 }
