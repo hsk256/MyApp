@@ -7,22 +7,22 @@
             android:title="主页" />
 
         <item
-            android:id="@+id/nav_menu_categories"
+            android:id="@+id/nav_menu_jni"
             android:icon="@mipmap/iconfont_home"
-            android:title="分类" />
+            android:title="JNI" />
 
         <item
             android:id="@+id/nav_menu_feedback"
             android:icon="@mipmap/iconfont_qunzu"
-            android:title="群组" />
+            android:title="内存泄露" />
         <item
             android:id="@+id/nav_menu_setting"
             android:icon="@mipmap/iconfont_setting"
-            android:title="设置" />
+            android:title="电池优化" />
         <item
             android:id="@+id/item5"
             android:icon="@mipmap/iconfont_qunzu"
-            android:title="群组" />
+            android:title="图片压缩" />
         <item
             android:id="@+id/item6"
             android:icon="@mipmap/iconfont_setting"

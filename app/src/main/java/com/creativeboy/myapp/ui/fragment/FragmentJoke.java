@@ -114,6 +114,7 @@ public class FragmentJoke extends Fragment implements JokeView,SwipeRefreshLayou
 
     @Override
     public void loadError() {
+        dataList.clear();
         swipeRefreshLayout.setRefreshing(false);
         showErrorLayout();
     }

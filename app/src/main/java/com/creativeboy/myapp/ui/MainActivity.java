@@ -1,5 +1,6 @@
 package com.creativeboy.myapp.ui;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -19,7 +20,6 @@ import android.view.View;
 
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
-import com.creativeboy.myapp.presenter.JokePresesnter;
 import com.creativeboy.myapp.ui.fragment.FragmentCar;
 import com.creativeboy.myapp.ui.fragment.FragmentJoke;
 import com.creativeboy.myapp.ui.fragment.FragmentNews;
@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private FragmentJoke fragmentJoke;
     private static String[] mTitles = {"娱乐","图片","新闻"};
     private MyViewPagerAdapter myViewPagerAdapter;
-    private JokePresesnter jokePresesnter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void init() {
         setSupportActionBar(mToolbar);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar,R.string.open,R.string.close);
         actionBarDrawerToggle.syncState();
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.action_settings:
-
+                    case R.id.nav_menu_jni:
+                        startActivity(new Intent(MainActivity.this, JniActivity.class));
                         break;
                 }
                 menuItem.setCheckable(true);
