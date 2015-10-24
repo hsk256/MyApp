@@ -3,6 +3,7 @@
     package="com.creativeboy.myapp" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app"
@@ -24,6 +25,7 @@
         <activity android:name=".ui.BatteryActivity">
 
         </activity>
+        <activity android:name=".ui.BroadcastActivity"/>
     </application>
 
 </manifest>

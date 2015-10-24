@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
 import com.creativeboy.myapp.ui.BatteryActivity;
+import com.creativeboy.myapp.ui.BroadcastActivity;
 import com.creativeboy.myapp.ui.JniActivity;
 import com.creativeboy.myapp.ui.fragment.FragmentCar;
 import com.creativeboy.myapp.ui.fragment.FragmentJoke;
@@ -142,6 +143,9 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
                         break;
                     case R.id.nav_menu_leak:
                         context.startActivity(new Intent(context, BatteryActivity.class));
+                        break;
+                    case R.id.id_broadcast:
+                        context.startActivity(new Intent(context,BroadcastActivity.class));
                         break;
                 }
                 menuItem.setCheckable(true);
