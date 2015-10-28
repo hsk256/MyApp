@@ -24,6 +24,7 @@ import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
 import com.creativeboy.myapp.ui.BatteryActivity;
 import com.creativeboy.myapp.ui.BroadcastActivity;
 import com.creativeboy.myapp.ui.JniActivity;
+import com.creativeboy.myapp.ui.ServiceActivity;
 import com.creativeboy.myapp.ui.fragment.FragmentCar;
 import com.creativeboy.myapp.ui.fragment.FragmentJoke;
 import com.creativeboy.myapp.ui.fragment.FragmentNews;
@@ -147,6 +148,8 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
                     case R.id.id_broadcast:
                         context.startActivity(new Intent(context,BroadcastActivity.class));
                         break;
+                    case R.id.id_service:
+                        context.startActivity(new Intent(context,ServiceActivity.class));
                 }
                 menuItem.setCheckable(true);
                 //关闭抽屉
