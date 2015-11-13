@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".ui.BroadcastActivity"/>
         <activity android:name=".ui.ServiceActivity"/>
+        <activity android:name=".ui.BitmapActivity" />
+        <activity android:name=".ui.MemoryActivity" />
         <service
             android:name=".service.ServiceDemo"/>
     </application>
