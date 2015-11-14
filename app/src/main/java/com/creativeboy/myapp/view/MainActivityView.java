@@ -3,6 +3,7 @@ package com.creativeboy.myapp.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
 import com.creativeboy.myapp.ui.BatteryActivity;
+import com.creativeboy.myapp.ui.BitmapActivity;
 import com.creativeboy.myapp.ui.BroadcastActivity;
 import com.creativeboy.myapp.ui.JniActivity;
 import com.creativeboy.myapp.ui.MemoryActivity;
@@ -151,6 +153,10 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
                         break;
                     case R.id.id_service:
                         context.startActivity(new Intent(context,ServiceActivity.class));
+                        break;
+                    case R.id.nav_menu_bitmap:
+                        context.startActivity(new Intent(context,BitmapActivity.class));
+                        break;
                 }
                 menuItem.setCheckable(true);
                 //关闭抽屉
