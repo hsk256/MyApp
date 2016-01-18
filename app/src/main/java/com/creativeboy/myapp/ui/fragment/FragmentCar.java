@@ -2,22 +2,17 @@ package com.creativeboy.myapp.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
-import android.widget.LinearLayout;
 
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.adapter.MyCarRecyclerviewAdapter;
 import com.creativeboy.myapp.adapter.OnRecyclerviewItemClickListener;
-import com.creativeboy.myapp.app.Constants;
+import com.creativeboy.myapp.base.Constants;
 import com.creativeboy.myapp.utils.SnackbarUtil;
 
 import butterknife.Bind;

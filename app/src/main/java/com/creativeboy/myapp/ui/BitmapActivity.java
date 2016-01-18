@@ -15,7 +15,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.creativeboy.myapp.R;
-import com.creativeboy.myapp.app.Constants;
+import com.creativeboy.myapp.base.Constants;
 import com.creativeboy.myapp.utils.BitmapUtil.ImageLoader;
 import com.creativeboy.myapp.utils.Utils;
 

@@ -3,7 +3,7 @@ package com.creativeboy.myapp.presenter;
 import android.support.v4.app.Fragment;
 
 import com.android.volley.VolleyError;
-import com.creativeboy.myapp.app.Constants;
+import com.creativeboy.myapp.base.Constants;
 import com.creativeboy.myapp.model.JokeModel;
 import com.creativeboy.myapp.model.bean.Joke;
 import com.creativeboy.myapp.network.RequestTask;
@@ -35,7 +35,7 @@ public class JokePresesnter {
         DateFormat dateFormat =new SimpleDateFormat("yyyyMMddHHmmss");
         String time_stamp = dateFormat.format(new Date());
         HashMap<String,String> req = new HashMap<>();
-        req.put("showapi_appid",Constants.SHOW_API_APP_ID);
+        req.put("showapi_appid", Constants.SHOW_API_APP_ID);
         req.put("showapi_sign",Constants.SHOW_API_SIGN);
         req.put("showapi_timestamp",time_stamp);
         req.put("num",number);

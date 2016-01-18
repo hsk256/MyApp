@@ -1,4 +1,4 @@
-package com.creativeboy.myapp.app;
+package com.creativeboy.myapp.base;
 
 /**
  * Created by heshaokang on 2015/9/10.
