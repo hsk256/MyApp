@@ -1,9 +1,7 @@
 package com.creativeboy.myapp.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -20,9 +18,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.creativeboy.myapp.R;
 import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
-import com.creativeboy.myapp.ui.BatteryActivity;
 import com.creativeboy.myapp.ui.BitmapActivity;
 import com.creativeboy.myapp.ui.BroadcastActivity;
 import com.creativeboy.myapp.ui.JniActivity;
@@ -31,7 +29,6 @@ import com.creativeboy.myapp.ui.ServiceActivity;
 import com.creativeboy.myapp.ui.fragment.FragmentCar;
 import com.creativeboy.myapp.ui.fragment.FragmentJoke;
 import com.creativeboy.myapp.ui.fragment.FragmentNews;
-import com.creativeboy.myapp.utils.SnackbarUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
@@ -71,7 +68,6 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
         appBarLayout = (AppBarLayout) view.findViewById(R.id.appbarlayout);
         tabLayout = (TabLayout) view.findViewById(R.id.tablayout);
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        floatingActionButton = (FloatingActionButton) view.findViewById(R.id.floatingbutton);
         this.context = inflater.getContext();
         setOnClickListener();
         setHeader();
@@ -167,7 +163,6 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
     }
 
     private void setOnClickListener() {
-        floatingActionButton.setOnClickListener(this);
     }
     /**
      * 设置头像
@@ -184,8 +179,7 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
     @Override
     public void onClick(View v) {
         switch ((v.getId())) {
-            case R.id.floatingbutton:
-                SnackbarUtil.showShort(v, "floatting action button");
+
         }
     }
 
