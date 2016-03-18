@@ -37,5 +37,10 @@
             android:icon="@mipmap/iconfont_setting"
             android:title="滑动冲突" />
 
+        <item
+            android:id="@+id/nav_menu_webview"
+            android:icon="@mipmap/iconfont_setting"
+            android:title="webview截屏" />
+
     </group>
 </menu>

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_luncher"
@@ -34,6 +35,7 @@
         <activity android:name=".ui.ServiceActivity"/>
         <activity android:name=".ui.BitmapActivity" />
         <activity android:name=".ui.MemoryActivity" />
+        <activity android:name=".ui.WebviewActivity" />
         <service
             android:name=".service.ServiceDemo"/>
     </application>
