@@ -25,7 +25,12 @@
         <activity android:name=".ui.BatteryActivity">
 
         </activity>
-        <activity android:name=".ui.BroadcastActivity"/>
+        <activity android:name=".ui.BroadcastActivity">
+
+        </activity>
+        <activity android:name=".ui.ViewPagerActivity">
+        </activity>
+
         <activity android:name=".ui.ServiceActivity"/>
         <activity android:name=".ui.BitmapActivity" />
         <activity android:name=".ui.MemoryActivity" />

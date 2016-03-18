@@ -39,7 +39,7 @@ public class BroadcastActivity extends AppCompatActivity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BroadcastActivity.this, BatteryActivity.class));
+                startActivity(new Intent(BroadcastActivity.this, ViewPagerActivity.class));
             }
         });
     }

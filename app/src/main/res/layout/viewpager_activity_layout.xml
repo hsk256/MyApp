@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
-        android:id="@+id/button"
+
+    <com.creativeboy.myapp.view.customeView.HorizontalScrollViewEx
+        android:id="@+id/container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="启动C"/>
+        android:layout_height="match_parent" />
 </LinearLayout>

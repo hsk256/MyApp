@@ -26,6 +26,7 @@ import com.creativeboy.myapp.ui.BroadcastActivity;
 import com.creativeboy.myapp.ui.JniActivity;
 import com.creativeboy.myapp.ui.MemoryActivity;
 import com.creativeboy.myapp.ui.ServiceActivity;
+import com.creativeboy.myapp.ui.ViewPagerActivity;
 import com.creativeboy.myapp.ui.fragment.FragmentCar;
 import com.creativeboy.myapp.ui.fragment.FragmentJoke;
 import com.creativeboy.myapp.ui.fragment.FragmentNews;
@@ -152,6 +153,9 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
                         break;
                     case R.id.nav_menu_bitmap:
                         context.startActivity(new Intent(context,BitmapActivity.class));
+                        break;
+                    case R.id.nav_menu_view_conflict:
+                        context.startActivity(new Intent(context, ViewPagerActivity.class));
                         break;
                 }
                 menuItem.setCheckable(true);
