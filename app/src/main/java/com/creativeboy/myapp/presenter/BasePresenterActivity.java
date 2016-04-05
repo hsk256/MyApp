@@ -1,8 +1,10 @@
 package com.creativeboy.myapp.presenter;
 
+import android.os.Binder;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 
 import com.creativeboy.myapp.view.Vu;
 
