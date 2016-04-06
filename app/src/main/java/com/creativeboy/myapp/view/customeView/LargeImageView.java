@@ -10,6 +10,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.creativeboy.myapp.utils.Log;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -19,6 +21,7 @@ import java.io.InputStream;
  */
 public class LargeImageView extends View {
 
+    private static final String TAG = "LargeImageView";
     private BitmapRegionDecoder bitmapRegionDecoder;
     //图片宽 高
     private int mImageWidth,mImageHeight;
@@ -74,6 +77,8 @@ public class LargeImageView extends View {
             public boolean onMove(MoveGestureDetector detector) {
                 int moveX = (int) detector.getMoveX();
                 int moveY = (int) detector.getMoveY();
+                Log.d(TAG,"mImageWidth--"+mImageWidth);
+                Log.d(TAG,"getWidth()--"+getWidth());
                 if(mImageWidth>getWidth()) {
                     mRect.offset(-moveX,0);
                     checkWidth();
@@ -98,7 +103,6 @@ public class LargeImageView extends View {
 
         Rect rect = mRect;
         int imageWidth = mImageWidth;
-        int imageHeight = mImageHeight;
 
         if (rect.right > imageWidth)
         {
