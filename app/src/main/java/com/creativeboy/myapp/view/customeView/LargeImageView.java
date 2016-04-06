@@ -56,8 +56,8 @@ public class LargeImageView extends View {
             BitmapFactory.decodeStream(in, null, tempOptions);
             mImageWidth = tempOptions.outWidth;
             mImageHeight = tempOptions.outHeight;
-            requestLayout();
-            invalidate();
+            //requestLayout();
+            //invalidate();
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
@@ -77,10 +77,9 @@ public class LargeImageView extends View {
             public boolean onMove(MoveGestureDetector detector) {
                 int moveX = (int) detector.getMoveX();
                 int moveY = (int) detector.getMoveY();
-                Log.d(TAG,"mImageWidth--"+mImageWidth);
-                Log.d(TAG,"getWidth()--"+getWidth());
+
                 if(mImageWidth>getWidth()) {
-                    mRect.offset(-moveX,0);
+                    mRect.offset(-moveX, 0);
                     checkWidth();
                     invalidate();
                 }
@@ -145,7 +144,14 @@ public class LargeImageView extends View {
     }
 
     @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Log.d(TAG, "onLayout");
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
+        Log.d(TAG,"onDraw");
         Bitmap bm = bitmapRegionDecoder.decodeRegion(mRect,options);
         canvas.drawBitmap(bm,0,0,null);
     }
@@ -153,6 +159,7 @@ public class LargeImageView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.d(TAG,"onMeasure");
         int width = getMeasuredWidth();
         int height = getMeasuredHeight();
 
