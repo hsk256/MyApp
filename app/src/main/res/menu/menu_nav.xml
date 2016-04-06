@@ -12,9 +12,9 @@
             android:title="JNI" />
 
         <item
-            android:id="@+id/nav_menu_leak"
+            android:id="@+id/nav_menu_load_large_img"
             android:icon="@mipmap/iconfont_qunzu"
-            android:title="内存泄露" />
+            android:title="加载大图" />
         <item
             android:id="@+id/nav_menu_battery"
             android:icon="@mipmap/iconfont_setting"

@@ -24,7 +24,7 @@ import com.creativeboy.myapp.adapter.MyViewPagerAdapter;
 import com.creativeboy.myapp.ui.BitmapActivity;
 import com.creativeboy.myapp.ui.BroadcastActivity;
 import com.creativeboy.myapp.ui.JniActivity;
-import com.creativeboy.myapp.ui.MemoryActivity;
+import com.creativeboy.myapp.ui.LoadLargeImgActivity;
 import com.creativeboy.myapp.ui.ServiceActivity;
 import com.creativeboy.myapp.ui.ViewPagerActivity;
 import com.creativeboy.myapp.ui.WebviewActivity;
@@ -143,8 +143,8 @@ public class MainActivityView implements Vu,ViewPager.OnPageChangeListener,View.
                     case R.id.nav_menu_jni:
                         context.startActivity(new Intent(context, JniActivity.class));
                         break;
-                    case R.id.nav_menu_leak:
-                        context.startActivity(new Intent(context, MemoryActivity.class));
+                    case R.id.nav_menu_load_large_img:
+                        context.startActivity(new Intent(context, LoadLargeImgActivity.class));
                         break;
                     case R.id.id_broadcast:
                         context.startActivity(new Intent(context,BroadcastActivity.class));

@@ -34,7 +34,7 @@
 
         <activity android:name=".ui.ServiceActivity"/>
         <activity android:name=".ui.BitmapActivity" />
-        <activity android:name=".ui.MemoryActivity" />
+        <activity android:name=".ui.LoadLargeImgActivity" />
         <activity android:name=".ui.WebviewActivity" />
         <service
             android:name=".service.ServiceDemo"/>
