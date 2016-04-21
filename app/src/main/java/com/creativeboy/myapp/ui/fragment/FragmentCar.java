@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.creativeboy.myapp.R;
+import com.creativeboy.myapp.adapter.BaseAdapter;
 import com.creativeboy.myapp.adapter.MyCarRecyclerviewAdapter;
 import com.creativeboy.myapp.adapter.OnRecyclerviewItemClickListener;
+import com.creativeboy.myapp.adapter.ViewHolder;
 import com.creativeboy.myapp.base.Constants;
 import com.creativeboy.myapp.utils.SnackbarUtil;
 
@@ -43,7 +45,6 @@ public class FragmentCar extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        car_recyclerview.setLayoutManager(new GridLayoutManager(getActivity(),3));
         car_recyclerview.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
         myCarRecyclerviewAdapter = new MyCarRecyclerviewAdapter(imgs);
         car_recyclerview.setAdapter(myCarRecyclerviewAdapter);
@@ -53,5 +54,6 @@ public class FragmentCar extends Fragment{
                 SnackbarUtil.showLong(view,"click "+position);
             }
         });
+
     }
 }

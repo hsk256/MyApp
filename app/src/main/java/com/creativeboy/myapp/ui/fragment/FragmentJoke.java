@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.creativeboy.myapp.R;
+import com.creativeboy.myapp.adapter.BaseAdapter;
 import com.creativeboy.myapp.adapter.MyJokeRecyclerviewAdapter;
+import com.creativeboy.myapp.adapter.ViewHolder;
 import com.creativeboy.myapp.model.bean.Joke;
 import com.creativeboy.myapp.presenter.JokePresesnter;
 import com.creativeboy.myapp.view.JokeView;
@@ -74,23 +76,11 @@ public class FragmentJoke extends Fragment implements JokeView,SwipeRefreshLayou
                 android.R.color.holo_blue_dark);
         jokePresesnter = new JokePresesnter(this);
         adapter = new MyJokeRecyclerviewAdapter(dataList);
-        joke_recyclerview.setAdapter(adapter);
 
-        handler.sendEmptyMessageDelayed(REFRESH_COMPLETE,800);
+
+
     }
 
-    private  Handler  handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if(msg.what==REFRESH_COMPLETE) {
-                swipeRefreshLayout.setRefreshing(true);
-                page = 1;
-                jokePresesnter.getJokeInfo(number, String.valueOf(page));
-            }
-
-            super.handleMessage(msg);
-        }
-    };
 
     @Override
     public void onResume() {
@@ -104,7 +94,6 @@ public class FragmentJoke extends Fragment implements JokeView,SwipeRefreshLayou
             Log.d(TAG, "data--" + data);
             dataList.addAll(data);
             Log.d(TAG, "data--" + dataList.get(0).getDescription()+dataList.get(0).getTime());
-            //joke_recyclerview.setLayoutManager(linearLayoutManager);
             adapter.notifyDataSetChanged();
         }else {
             showErrorLayout();
@@ -124,13 +113,11 @@ public class FragmentJoke extends Fragment implements JokeView,SwipeRefreshLayou
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handler.sendEmptyMessageDelayed(REFRESH_COMPLETE,800);
             }
         });
     }
 
     @Override
     public void onRefresh() {
-        handler.sendEmptyMessageDelayed(REFRESH_COMPLETE,800);
     }
 }
