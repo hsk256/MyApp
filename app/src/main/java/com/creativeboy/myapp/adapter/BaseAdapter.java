@@ -44,6 +44,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder>{
         convert(holder,mDatas.get(position));
     }
     public abstract void convert(ViewHolder holder,T t);
+
     @Override
     public int getItemCount() {
         return mDatas.size();

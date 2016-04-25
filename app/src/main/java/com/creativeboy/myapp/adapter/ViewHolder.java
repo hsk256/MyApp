@@ -1,12 +1,15 @@
 package com.creativeboy.myapp.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * Created by littlekang on 16/4/21.
@@ -17,11 +20,13 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     private SparseArray<View> mViews;
     private int mLayoutId;
     private int mPosition;
-    public ViewHolder(Context context, View itemView, ViewGroup parent,int position) {
+    public ViewHolder(Context context, View itemView,int position) {
         super(itemView);
         this.mContext = context;
         this.mConvertView = itemView;
+        mConvertView.setTag(this);
         mViews = new SparseArray<View>();
+        mPosition = position;
 
     }
 
@@ -30,7 +35,7 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         ViewHolder viewHolder;
         if(convertView ==null) {
             View itemView = LayoutInflater.from(context).inflate(layoutId,parent,false);
-            viewHolder = new ViewHolder(context,itemView,parent,position);
+            viewHolder = new ViewHolder(context,itemView,position);
             viewHolder.mLayoutId = layoutId;
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -72,7 +77,18 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     }
 
 
-
+    /**
+     * 设置图片
+     * @param viewId
+     * @param url
+     * @return
+     */
+    public ViewHolder setImageByFresc(int viewId,String url) {
+        SimpleDraweeView simpleDraweeView = getView(viewId);
+        Uri uri = Uri.parse(url);
+        simpleDraweeView.setImageURI(uri);
+        return this;
+    }
 
 
 
